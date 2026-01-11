@@ -1,6 +1,13 @@
 import os
 
+from dotenv import load_dotenv
+
+
+# Load environment variables from a .env file if present
+load_dotenv()
+
+
 class Config:
-    SECRET_KEY = "zero-hunger-secret"
-    JWT_SECRET_KEY = "jwt-zero-hunger"
-    MONGO_URI = "mongodb+srv://zerohungerplatform_db_user:zerohunger@zerohunger.q26ox8.mongodb.net/?appName=ZeroHunger"
+    SECRET_KEY = os.getenv("SECRET_KEY")
+    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+    MONGO_URI = os.getenv("MONGO_URI")
